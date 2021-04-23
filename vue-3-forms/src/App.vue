@@ -41,14 +41,13 @@
       </div>
 
       <h3>Extras</h3>
+
       <div>
-        <input type="checkbox" v-model="event.extras.catering" />
-        <label>Catering</label>
+        <base-checkbox v-model="event.extras.catering" label="Catering" />
       </div>
 
       <div>
-        <input type="checkbox" v-model="event.extras.music" />
-        <label>Live music</label>
+        <base-checkbox v-model="event.extras.music" label="Live music" />
       </div>
 
       <button type="submit">Submit</button>
@@ -57,15 +56,8 @@
 </template>
 
 <script>
-import BaseInput from "@/components/BaseInput.vue";
-import BaseSelect from "@/components/BaseSelect.vue";
-
 export default {
   name: "App",
-  components: {
-    BaseInput,
-    BaseSelect,
-  },
   data() {
     return {
       categories: [
