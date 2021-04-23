@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Create an event</h1>
-    <form>
+    <form @submit.prevent="sendForm">
       <base-select
         v-model="event.category"
         label="Select a category"
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "App",
   data() {
@@ -67,6 +69,19 @@ export default {
         { label: "No", value: 0 },
       ],
     };
+  },
+  methods: {
+    sendForm() {
+      // Implement client-side validation here
+      axios
+        .post("/api/events", this.event)
+        .then((response) => {
+          console.log("Response", response);
+        })
+        .catch((err) => {
+          console.log("Error", err);
+        });
+    },
   },
 };
 </script>
