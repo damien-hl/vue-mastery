@@ -7,43 +7,27 @@
         label="Select a category"
         :options="categories"
       />
-      <label>Select a category</label>
-      <select v-model="event.category">
-        <option
-          v-for="option in categories"
-          :value="option"
-          :key="option"
-          :selected="option === event.category"
-        >
-          {{ option }}
-        </option>
-      </select>
 
       <h3>Name & describe your event</h3>
-
       <base-input v-model="event.title" label="Title" type="text" />
-
       <base-input v-model="event.description" label="Description" type="text" />
 
       <h3>Where is your event?</h3>
-
       <base-input v-model="event.location" label="Location" type="text" />
 
       <h3>Are pets allowed?</h3>
       <div>
-        <base-radio v-model="event.pets" :value="1" label="Yes" name="pets" />
-      </div>
-
-      <div>
-        <base-radio v-model="event.pets" :value="0" label="No" name="pets" />
+        <base-radio-group
+          v-model="event.pets"
+          :options="petOptions"
+          name="pets"
+        />
       </div>
 
       <h3>Extras</h3>
-
       <div>
         <base-checkbox v-model="event.extras.catering" label="Catering" />
       </div>
-
       <div>
         <base-checkbox v-model="event.extras.music" label="Live music" />
       </div>
@@ -78,6 +62,10 @@ export default {
           music: false,
         },
       },
+      petOptions: [
+        { label: "Yes", value: 1 },
+        { label: "No", value: 0 },
+      ],
     };
   },
 };
