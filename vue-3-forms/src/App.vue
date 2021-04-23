@@ -8,29 +8,43 @@
         :options="categories"
       />
 
-      <h3>Name & describe your event</h3>
-      <base-input v-model="event.title" label="Title" type="text" />
-      <base-input v-model="event.description" label="Description" type="text" />
-
-      <h3>Where is your event?</h3>
-      <base-input v-model="event.location" label="Location" type="text" />
-
-      <h3>Are pets allowed?</h3>
-      <div>
-        <base-radio-group
-          v-model="event.pets"
-          :options="petOptions"
-          name="pets"
+      <fieldset>
+        <legend>Name & describe your event</legend>
+        <base-input v-model="event.title" label="Title" type="text" />
+        <base-input
+          v-model="event.description"
+          label="Description"
+          type="text"
+          error="This field has an error !"
         />
-      </div>
+      </fieldset>
 
-      <h3>Extras</h3>
-      <div>
-        <base-checkbox v-model="event.extras.catering" label="Catering" />
-      </div>
-      <div>
-        <base-checkbox v-model="event.extras.music" label="Live music" />
-      </div>
+      <fieldset>
+        <legend>Where is your event?</legend>
+        <base-input v-model="event.location" label="Location" type="text" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Pets</legend>
+        <p>Are pets allowed ?</p>
+        <div>
+          <base-radio-group
+            v-model="event.pets"
+            :options="petOptions"
+            name="pets"
+          />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Extras</legend>
+        <div>
+          <base-checkbox v-model="event.extras.catering" label="Catering" />
+        </div>
+        <div>
+          <base-checkbox v-model="event.extras.music" label="Live music" />
+        </div>
+      </fieldset>
 
       <button type="submit">Submit</button>
     </form>
@@ -96,6 +110,23 @@ export default {
   color: #2c3e50;
 }
 
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+fieldset p {
+  margin: 0;
+}
+
+legend {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 28px;
+  font-weight: 700;
+}
+
 .field:focus {
   outline: none;
   border: 1px solid rgb(65, 183, 130);
@@ -106,6 +137,8 @@ label {
   margin-bottom: 0.25rem;
   display: inline-block;
   font-size: 80%;
+  font-weight: 700;
+  color: #6c7884;
 }
 
 input[type="checkbox"] {
@@ -125,6 +158,11 @@ input[type="radio"] {
   border: 1px solid rgb(196, 196, 196);
   border-radius: 4px;
   transition: box-shadow 250ms ease;
+}
+
+.errorMessage {
+  font-size: 80%;
+  color: #a01c1c;
 }
 
 button[type="submit"] {

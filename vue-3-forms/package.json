@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "serve:api": "node ./server/index.js"
+    "serve:api": "node ./api/events.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
