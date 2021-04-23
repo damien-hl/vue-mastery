@@ -2,6 +2,11 @@
   <div>
     <h1>Create an event</h1>
     <form>
+      <base-select
+        v-model="event.category"
+        label="Select a category"
+        :options="categories"
+      />
       <label>Select a category</label>
       <select v-model="event.category">
         <option
@@ -53,11 +58,13 @@
 
 <script>
 import BaseInput from "@/components/BaseInput.vue";
+import BaseSelect from "@/components/BaseSelect.vue";
 
 export default {
   name: "App",
   components: {
     BaseInput,
+    BaseSelect,
   },
   data() {
     return {
@@ -96,7 +103,15 @@ export default {
   color: #2c3e50;
 }
 
+.field:focus {
+  outline: none;
+  border: 1px solid rgb(65, 183, 130);
+  box-shadow: 0 0 0 0.2rem rgb(65 183 130 / 25%);
+}
+
 label {
+  margin-bottom: 0.25rem;
+  display: inline-block;
   font-size: 80%;
 }
 
@@ -108,7 +123,6 @@ input[type="radio"] {
   margin-bottom: 0.5rem;
 }
 
-select,
 .field {
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -117,13 +131,16 @@ select,
   display: block;
   border: 1px solid rgb(196, 196, 196);
   border-radius: 4px;
+  transition: box-shadow 250ms ease;
 }
 
 button[type="submit"] {
+  margin-top: 1rem;
   padding: 0.75rem 2rem;
   background: linear-gradient(90deg, #41b782, #86d169);
   border: none;
   border-radius: 4px;
+  font-weight: 700;
   color: #fff;
   cursor: pointer;
 }
