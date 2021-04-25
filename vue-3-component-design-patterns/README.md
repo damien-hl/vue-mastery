@@ -33,7 +33,7 @@ export default {
 ### Mettre en place une validation des props
 
 Pour une props contenant l'URL d'une image :
-```vue
+```js
 export default {
   props: {
     image: {
@@ -47,7 +47,7 @@ export default {
 On créer une validation pour s'assurer que l'image :
 - se trouve dans le dossier images
 - est de type PNG ou JPG
-```vue
+```js
 export default {
   props: {
     image: {
@@ -79,12 +79,12 @@ Le contenu par défaut d'un slot se défini ainsi (BaseButton.vue) :
 </template>
 ```
 
-```vue
+```js
 <BaseButton></BaseButton>
 ```
 
 Il est alors possible d'écraser ce contenu :
-```vue
+```js
 <BaseButton>Cancel</BaseButton>
 ```
 
@@ -92,17 +92,19 @@ Il est alors possible d'écraser ce contenu :
 
 Les slots nommés se définissent comme cela (CustomLayout.vue) :
 ```vue
-div class="container">
-  <header>
-    <slot name="header"></slot>
-  </header>
-  <main>
-    <slot></slot>
-  </main>
-  <footer>
-    <slot name="footer"></slot>
-  </footer>
-</div>
+<template>
+  div class="container">
+    <header>
+      <slot name="header"></slot>
+    </header>
+    <main>
+      <slot></slot>
+    </main>
+    <footer>
+      <slot name="footer"></slot>
+    </footer>
+  </div>
+</template>
 ```
 
 Ils s'utilisent ainsi :

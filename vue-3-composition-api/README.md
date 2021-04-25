@@ -199,6 +199,7 @@ export default {
 
 Il est possible d'utiliser les hooks dans la composition API :
 ```vue
+<script>
 import {
   onBeforeMount,
   onMounted,
@@ -242,12 +243,13 @@ export default {
     });
   }
 };
+</script>
 ```
 
 ## Watch
 
 Pour déclencher un comportement lors du changement de la valeur d'une propriété réactive, on peut utiliser watchEffect : 
-```vue
+```js
 setup() {
   const searchInput = ref("");
   const results = ref(0);
@@ -261,12 +263,12 @@ setup() {
 ```
 
 Si on souhaite spécifier la source de ce changement, on peut utiliser watch :
-```vue
+```js
 watch(searchInput, (newVal, oldVal) => {
   ...
 });
 ```
-```vue
+```js
 watch([firstName, lastName], ([newFirst, newLast], [oldFirst, oldLast]) => {
   ... 
 }, { immediate: true });
@@ -275,7 +277,7 @@ watch([firstName, lastName], ([newFirst, newLast], [oldFirst, oldLast]) => {
 ## Composables
 
 Il est intéressant d'extraire des parties du code en composables, par exemple, pour des appels d'API :
-```vue
+```js
 import { ref } from "@vue/composition-api";
 
 export default function usePromise(fn) {
