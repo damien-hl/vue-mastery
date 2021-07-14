@@ -1,5 +1,5 @@
 # Vue Mastery
-> Mon avancée sur les cours Vue 3 de Vue Mastery# Three.js Journey
+> Mon avancée sur les cours Vue 3 de Vue Mastery
 
 ![Vue Mastery logo](./docs/vuemastery.svg)
 
